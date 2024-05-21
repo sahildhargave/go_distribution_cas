@@ -6,6 +6,21 @@ import (
 	"fmt"
 )
 
+// TCPPeers represenr the remote node ove a TCP established connection.
+type TCPPeer struct{
+	conn  net.Conn
+
+	// if we dial and retrieve a conn => outbound == true
+	// if we accept  and retrive a conn -> outbound == false
+	outbound bool
+}
+
+func NewTCPPeer(conn net.Conn, outbound bool) *TCPPeer{
+	return &TCPPeer{
+		conn :  conn,
+		outbound : outbound,
+	}
+}
 // TCPTransport represents a TCP transport layer for peer-to-peer communication.
 type TCPTransport struct {
 	listenAddress string
