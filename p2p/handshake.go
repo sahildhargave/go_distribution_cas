@@ -5,6 +5,8 @@ package p2p
 //	}
 //
 // type DefaultHandshaker struct{}
+
+// var ErrInvalidHandshake = errors.New("Invalid Handshake")
 // / HandshakeFunc.... ?
 type HandshakeFunc func(Peer) error
 
